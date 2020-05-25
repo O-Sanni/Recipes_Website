@@ -12,8 +12,10 @@ class FoodSearch extends React.Component{
 
 
     async getFood(){
+        const app_key=process.env.REACT_APP_API_KEY_RECIPES;
+        const app_id=process.env.REACT_APP_RECIPES_API_ID;
         try{
-           let food=await axios.get(`https://api.edamam.com/search?app_id=e94246de&app_key=8188679cfd3fd985175a66753afae2fd&q=${this.props.title}&commonNames=${this.props.title}`)
+           let food=await axios.get(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q=${this.props.title}&diet=${this.props.diet}&cuisineType=${this.props.cuisine}&mealType=${this.props.mealType}&dishType=${this.props.dishType}`)
            this.setState({foodLists: food.data});
            console.log(this.state.foodLists)
         }
