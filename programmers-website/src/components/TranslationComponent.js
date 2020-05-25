@@ -1,5 +1,4 @@
 import React from "react";
-import Translation from "./TranslationSearch";
 import TranslationSearch from "./TranslationSearch";
 
 

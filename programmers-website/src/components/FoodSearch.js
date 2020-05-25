@@ -6,7 +6,7 @@ class FoodSearch extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            foodLists:[],
+            foodLists:[]
         }
     }
 
@@ -15,9 +15,8 @@ class FoodSearch extends React.Component{
         const app_key=process.env.REACT_APP_API_KEY_RECIPES;
         const app_id=process.env.REACT_APP_RECIPES_API_ID;
         try{
-           let food=await axios.get(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q=${this.props.title}&diet=${this.props.diet}&cuisineType=${this.props.cuisine}&mealType=${this.props.mealType}&dishType=${this.props.dishType}`)
-           this.setState({foodLists: food.data});
-           console.log(this.state.foodLists)
+           let food=await axios.get(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q=${this.props.title}`)
+           this.setState({foodLists: food.data.hits});
         }
 
         catch(error){
@@ -25,51 +24,58 @@ class FoodSearch extends React.Component{
         }
     }
 
-
-    // async getFood(){
-    //     try{
-    //        let food=await axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=hhpzNh59Ux9s4nYCk6f5cdjX9fB7tqjgm2nqzgDL&query=${this.props.title}&commonNames=${this.props.title}`)
-    //        this.setState({foodLists: food.data});
-    //        console.log(this.state.foodLists)
-    //     }
-
-    //     catch(error){
-    //        console.log(error);
-    //     }
-    // }
-
     componentDidMount(){
         this.getFood();
 
     }       
         
-// the following function will check if this.state.jobList is not undefined .map will called to print out information for each job listing
-//     checkIfExist(){
-//         if(this.state.jobsList===undefined){}
-//         else{
-//             let jobs=this.state.jobsList.map((res,index)=> {
-//             let create=new Date(res.created)
-//             let dateCreated=create.getUTCMonth() + "/" +create.getUTCDay() + "/" +create.getUTCFullYear() + " at " + create.getUTCHours() + ":" + create.getUTCMinutes();//output date and time for each job listing
-//             return (
-//                     <div className="job-search-output-div-class">
-//                         <h2 className="job-search-output-class-h2">Title: {removemd(res.title)}</h2> 
-//                         <p className="job-search-output-class-p"><span class="span-job-map">Category: </span>{res.category.label}</p>
-//                         <p className="job-search-output-class-p"><span class="span-job-map">Company Name: </span>{res.company.display_name}</p>
-//                         <p className="job-search-output-class-p"><span class="span-job-map">Contract time: </span>{res.contract_time}</p>
-//                         <p className="job-search-output-class-p"><span class="span-job-map">Description: </span>{removemd(res.description)}</p>
-//                         <a className="job-search-output-class-a" href={res.redirect_url}>&#x1F517;Aditional information </a>
-//                         <p className="job-search-output-class-p"><span class="span-job-map">Created on: </span>{dateCreated}</p>
-//                         <MapSearch lat={res.latitude} lng={res.longitude}/>
-//                     </div>)
-//             })
-//             return jobs;
-//             }
-//     }
+the following function will check if this.state.jobList is not undefined .map will called to print out information for each job listing
+    checkIfExist(){ 
+         console.log(this.state.foodLists)
+        if(this.state.foodList===undefined){}
+        else{
+            let recipes=this.state.foodList.map(res=> {
+                let cations=res.recipe.map(res=>{return <p>{res.cautions}</p>})
+                let dietLabels=res.recipe.map(res=>{return <p>{res.dietLabels}</p>})
+                let digest=res.recipe.map(res=>{return <div><p>{res.digest.label}</p>
+                <p>{res.digest.tag}</p>
+                <p>{res.digest.total}</p>
+                </div>})
+                let healthLabels=res.recipe.map(res=>{return <p>{res.healthLabels}</p>})
+                let ingredients=res.recipe.map(res=>{return <p>{res.ingredients.text}, weight: {res.ingredients.weight}</p>})
+                
+                return (
+                    <div className="recipe-search-output-div-class">
+                        <h2 className="recipe-search-output-class-h2">Name: {res.recipe.label}</h2> 
+                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Calories: </span>{res.recipe.calories}</p>
+                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Cautions: </span>{cations}</p>
+                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Total time: </span>{res.recipe.totalTime}</p>
+                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Total Weight: </span> {res.recipe.totalWeight}</p>
+                        <img src={res.recipe.image} alt="dish image"/>
+                        <div>
+                            {digest}
+                        </div>
+                        <div>
+                            {dietLabels}
+                        </div>
+                        <div>
+                            {healthLabels}
+                        </div>
+                        <div>
+                            {ingredients}
+                        </div>
+                    </div>)
+            })
+            console.log(recipes);
+            }
+    }
 
-    render(){   
+    render(){  
+         
         return(
             <div id="main-div-job-search-results">
-                {/* { this.checkIfExist()} */}
+                { this.checkIfExist()}
+                <img src={require("../assets/transparent.png")} alt="powered by Edamam"/>
             </div>
         )
     }
