@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input } from 'reactstrap';
 
 
 class AddUpdateReceipt extends React.Component{
@@ -19,17 +19,13 @@ constructor(props){
        item:this.epmtyReceipts,
        put: false
     }
-    this.handleChange=this.getUserName.bind(this);
+    this.handleChange=this.handleChange.bind(this);
     this.submitButtonHandler=this.submitButtonHandler.bind(this);
 }
 
-handleChange(event){
-    event.preventDefault();
-    this.setState({email: event.target.value});
-}
 async componentDidMount(){
 if(this.props.match.params.id !== "new"){
-    const groupItems=await (await fetch(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`)).json());
+    const groupItems=await (await fetch(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`)).json();
     this.setState({item:groupItems})
     this.setState({put:true})
 }
@@ -50,7 +46,7 @@ submitButtonHandler(event){
 async submitButtonHandler(event){
     event.preventDefault();
     const {item}=this.state;
-    if(this.state.put===true){
+    if(this.state.put===true){ 
     await fetch(`/my_recipes_book/v1/users_recipes/${item.id}`,{
         method:'PUT',
         headers:{
@@ -67,7 +63,7 @@ async submitButtonHandler(event){
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify(item),
+              body: JSON.stringify(item)
             });
 
     }
@@ -76,20 +72,32 @@ async submitButtonHandler(event){
 
 render(){
     const {item}=this.state
-    const updateOrAdd=<h1>{item.id? "Edit Receipt":"Add new Receipt"}</h1>;
+    const updateOrAdd=<h1>{item.id? "Edit recipe":"Add new recipe"}</h1>;
     return(
         <Container id="main-div-search-page">
         {updateOrAdd}
             <Container id="search-page-form-div">
                 <Form onSubmit={this.submitButtonHandler}>
                     <FormGroup id="form-inputs-div">
-                        <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Enter Your Email</p>
-                            <Input   type="text" name="email" id="email" value={item.email || ""} onChange={this.handleChange} autoComplete="email"/>
+                    <FormGroup className="form-mini-divs">
+                            <p className="job-display-p">Enter your user name</p>
+                            <Input   type="text" name="userName" id="userName" value={item.userName || ""} onChange={this.handleChange} autoComplete="userName"/>
                         </FormGroup>
                         <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Indicate your food Preferences</p>
-                            <Input   type="text" name="preferences" value={item.preferences || ""} onChange={this.handleChange} autoComplete="preferences"/>
+                            <p className="job-display-p">Enter recipe name</p>
+                            <Input   type="text" name="recipesName" id="recipesName" value={item.recipesName || ""} onChange={this.handleChange} autoComplete="recipesName"/>
+                        </FormGroup>
+                        <FormGroup className="form-mini-divs">
+                            <p className="job-display-p">Enter receipt ingredients</p>
+                            <textarea  name="recipesIngredients" value={item.recipesIngredients} onChange={this.handleChange} autoComplete="recipesIngredients" ></textarea>
+                        </FormGroup>
+                        <FormGroup className="form-mini-divs">
+                        <p className="job-display-p">Enter receipt cooking process</p>
+                            <textarea  name="recipesCooking" value={item.recipesCooking} onChange={this.handleChange} autoComplete="recipesCooking" ></textarea>
+                            </FormGroup>
+                        <FormGroup className="form-mini-divs">
+                            <p className="job-display-p">Add dish picture url</p>
+                            <Input   type="text" name="recipesPicture" value={item.recipesPicture || ""} onChange={this.handleChange} autoComplete="recipesPicture"/>
                         </FormGroup>
                     </FormGroup>
                     <FormGroup id="form-buttons-divs">
