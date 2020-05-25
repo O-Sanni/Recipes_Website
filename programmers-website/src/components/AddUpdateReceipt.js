@@ -24,7 +24,7 @@ constructor(props){
 }
 
 async componentDidMount(){
-if(this.props.match.params.id !== "new"){
+if(this.props.match.params.id !== ""){
     const groupItems=await (await fetch(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`)).json();
     this.setState({item:groupItems})
     this.setState({put:true})
@@ -55,6 +55,7 @@ async submitButtonHandler(event){
           },
           body: JSON.stringify(item),
         });
+        this.props.history.push('/users_recipes');
     }
     else{
         await fetch(`/my_recipes_book/v1/users_recipes/`,{
@@ -102,6 +103,8 @@ render(){
                     </FormGroup>
                     <FormGroup id="form-buttons-divs">
                     <Button color="primary" class="btn btn-primary" type="submit">Save</Button>{' '}
+                    <Button id="clear-button-search-page" type="button" onClick={()=>{this.setState({item: this.epmtyReceipts})}}>Clear</Button>
+                    
                     <Button class="btn btn-secondary" tag={Link} to="/food_search_info">Exit</Button>
                         </FormGroup>
                 </Form>

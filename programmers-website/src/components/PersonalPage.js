@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
-import { Link, withRouter } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Button, Container, ButtonGroup} from 'reactstrap';
 
 class PersonalPage extends React.Component{
 
@@ -16,11 +16,12 @@ constructor(props){
 
 componentDidMount(){
 axios.get(`/my_recipes_book/v1/users_recipes/`)
-.then(res=>{this.setState({recipes:res})}).catch(error=>{console.log(error)})
+.then(res=>{this.setState({recipes:res.data})}).catch(error=>{console.log(error)})
 axios.get(`/my_recipes_book/v1/users/${this.props.match.params.id}`)
 .then(res=>{this.setState({personalInfo:res})}).catch(error=>{console.log(error)})
 console.log(this.state.recipes)
 }
+
 async removeRecipe(id){
     await fetch(`/my_recipes_book/v1/users_recipes/${id}`,{
     method: 'DELETE',
@@ -34,49 +35,42 @@ async removeRecipe(id){
   });
 }
 
-
-render(){
-    const receList = employees.map(employee => {
-        return <tr key={employee.id}>
-          <td style={{whiteSpace: 'nowrap'}}>{employee.firstName}</td>
-          <td>{employee.lastName}</td>
-          <td>{employee.email}</td>
-          <td>
+recipesList(){
+   
+    if(this.state.recipes===undefined){}
+    else{
+    const recipesList = this.state.recipes.map(recipe=> {
+        return <div>
+            <h2>{recipe.recipeName}</h2>
+                <p>Ingredients: {recipe.recipesIngredients} </p>
+            <p>Cooking steps: {recipe.recipesCooking}</p>
+            <img src={recipe.recipesPicture}/>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={"/employee/" + employee.id}>Edit</Button>
-              <Button size="sm" color="danger" onClick={() => this.remove(employee.id)}>Delete</Button>
-            </ButtonGroup>
-          </td>
-        </tr>
+               <Button size="sm" color="primary" tag={Link} to={"/users_recipes/" + recipe.id}>Edit</Button>
+               <Button size="sm" color="danger" onClick={() => this.removeRecipe(recipe.id)}>Delete</Button>
+             </ButtonGroup>
+        </div>
+        
       });
-  
+    return recipesList;
+    }
+}
+render(){
+    
       return (
         <div>
-          <AppNavbar/>
           <Container fluid>
             <div className="float-right">
-              <Button color="success" tag={Link} to="/employee/new">Add Group</Button>
+              <Button color="success" tag={Link} to="/users_recipes/">Add new recipe</Button>
             </div>
-            <h3>My Employees List</h3>
-            <Table className="mt-4">
-              <thead>
-              <tr>
-                <th width="20%">First Name</th>
-                <th width="20%">Last Name</th>
-                <th>Email</th>
-                <th width="10%">Actions</th>
-              </tr>
-              </thead>
-              <tbody>
-              {employeeList}
-              </tbody>
-            </Table>
+            <h3>My recipes</h3>
+              {this.recipesList()}
           </Container>
         </div>
       );
     }
   }
-}
+
 
 export default PersonalPage;
 

@@ -34,7 +34,7 @@ function Navigation(){
                         <Link className="class-link" to="/subscribe">Subscribe</Link>
                     </li>
                     <li className="nav-lists">
-                        <Link className="class-link" to="/add_update_receipt">Add/Update Receipt</Link>
+                        <Link className="class-link" to="/users_recipes">Add/Update Receipt</Link>
                     </li>
                 </ul>
             </nav>
@@ -45,7 +45,7 @@ function Navigation(){
                 <Route exact path="/signin" component={SignInPage} ></Route>
                 <Route exact path="/signup" component={SignUpPage}></Route>
                 <Route exact path="/subscribe" component={Subscribe}></Route>
-                <Route exact path="/add_update_receipt" component={AddUpdateReceipt} ></Route>
+                <Route exact path="/users_recipes" component={AddUpdateReceipt} ></Route>
                 <Route exact path="/personal" component={PersonalPage} ></Route>
             </Switch>
         </Router>
