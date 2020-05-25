@@ -39,11 +39,21 @@ submitButtonHandler(event){
     event.preventDefault();
     this.setState({search:true});
 }
-addUser(){
-    axios.post('/my_receipts_book/v1/users'{
 
-    })
-}
+addUser(){
+    axios.post('/my_recipes_book/v1/users/',
+    {
+    "userName": this.state.userName,
+	"fullName":this.state.fullName,
+	"email":this.state.email,
+    "password":this.state.password,
+    "pictureUrl":""
+    }).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+})}
+
 
 render(){
     return(
@@ -71,12 +81,16 @@ render(){
                     <div id="form-buttons-divs">
                         <input id="submit-button-form" type="submit" />
                         {/* clear button will clear the state, put values to initial state in order to do a new search */}
-                        <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({searchTitle: "", searchCourse: false, searchBook: false, search: false})}}>Clear</button>
+                        <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "",
+        password: "",
+        email:"",
+        fullName:"",
+        signup: false})}}>Clear</button>
                     </div>
                     <p className="job-display-p">If you want to start a new search please press clear</p>
                 </form>
             </div>  
-            {/* {this.state.search? (<FoodSearch title={this.state.searchTitle}/>) : ""}            */}
+            {this.state.search? this.updateUser() : ""}           
             {/* {this.state.search ? (<SearchJobs results_per_page={this.state.numberToDisplay} page={this.state.page} what={this.state.searchTitle} where={this.state.searchLocation} distance={Math.round(this.state.searchDistanceMl/0.62137)}/>) : ""}  */}
         </div>
         )

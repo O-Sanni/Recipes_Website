@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/my_receipts_book/v1")
+@RequestMapping("/my_recipes_book/v1")
 
 public class SubscriptionsController {
 

@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/my_receipts_book/v1")
+@RequestMapping("/my_recipes_book/v1")
 public class UserController {
 
     @Autowired
@@ -35,10 +35,10 @@ public class UserController {
 //  get all User by id
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> useruserById(@PathVariable(value = "id") Long userName)
+    public ResponseEntity<User> useruserById(@PathVariable(value = "id") Long userId)
             throws ResourcesNotFoundException {
-        User user = userRepository.findById(userName)
-                .orElseThrow(() -> new ResourcesNotFoundException("User not found for this id :: " + userName));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourcesNotFoundException("User not found for this id :: " + userId));
         return ResponseEntity.ok().body(user);
     }
 
@@ -53,10 +53,10 @@ public class UserController {
 //  Update Employee
 
     @PutMapping("/users/{id}")
-    public ResponseEntity<User> updateuser(@PathVariable(value = "id") Long userName, @Valid @RequestBody User userDetails)
+    public ResponseEntity<User> updateuser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User userDetails)
             throws ResourcesNotFoundException {
-        User user = userRepository.findById(userName)
-                .orElseThrow(()-> new ResourcesNotFoundException("User not found for this id :: " + userName));
+        User user = userRepository.findById(userId)
+                .orElseThrow(()-> new ResourcesNotFoundException("User not found for this id :: " + userId));
 
         user.setFullName(userDetails.getFullName());
         user.setEmail(userDetails.getEmail());
@@ -73,10 +73,10 @@ public class UserController {
 //  Delete User
 
     @DeleteMapping("/users/{id}")
-    public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userName)
+    public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId)
             throws ResourcesNotFoundException {
-        User user = userRepository.findById(userName)
-                .orElseThrow(()-> new ResourcesNotFoundException("Employee not found for this id :: " + userName));
+        User user = userRepository.findById(userId)
+                .orElseThrow(()-> new ResourcesNotFoundException("Employee not found for this id :: " + userId));
 
         userRepository.delete(user);
         Map<String, Boolean> response = new HashMap<>();

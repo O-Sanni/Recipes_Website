@@ -44,7 +44,6 @@ render(){
                 </form>
             </div>  
             {this.state.search? (<FoodSearch title={this.state.searchTitle}/>) : ""}           
-            {/* {this.state.search ? (<SearchJobs results_per_page={this.state.numberToDisplay} page={this.state.page} what={this.state.searchTitle} where={this.state.searchLocation} distance={Math.round(this.state.searchDistanceMl/0.62137)}/>) : ""}  */}
         </div>
         )
     }

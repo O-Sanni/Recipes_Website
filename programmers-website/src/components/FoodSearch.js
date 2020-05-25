@@ -13,7 +13,7 @@ class FoodSearch extends React.Component{
 
     async getFood(){
         try{
-           let food=await axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=hhpzNh59Ux9s4nYCk6f5cdjX9fB7tqjgm2nqzgDL&query=${this.props.title}&commonNames=${this.props.title}`)
+           let food=await axios.get(`https://api.edamam.com/search?app_id=e94246de&app_key=8188679cfd3fd985175a66753afae2fd&q=${this.props.title}&commonNames=${this.props.title}`)
            this.setState({foodLists: food.data});
            console.log(this.state.foodLists)
         }
