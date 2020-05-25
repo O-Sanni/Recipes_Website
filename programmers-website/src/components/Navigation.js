@@ -6,6 +6,7 @@ import SignInPage from './SignInPage';
 import SignUpPage from './SignUpPage';
 import Subscribe from './Subscribe';
 import AddUpdateReceipt from "./AddUpdateReceipt"
+import PersonalPage from "./PersonalPage";
 
 
 //navigation component will have 4 links and 4 route each route will call exact path for specific component
@@ -45,6 +46,7 @@ function Navigation(){
                 <Route exact path="/signup" component={SignUpPage}></Route>
                 <Route exact path="/subscribe" component={Subscribe}></Route>
                 <Route exact path="/add_update_receipt" component={AddUpdateReceipt} ></Route>
+                <Route exact path="/personal" component={PersonalPage} ></Route>
             </Switch>
         </Router>
     )

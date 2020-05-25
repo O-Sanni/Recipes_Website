@@ -7,9 +7,11 @@ constructor(props){
     this.state={
         userName: "",
         password: "",
+        userId:"",
         search: false
     }
     this.getUserName=this.getUserName.bind(this);
+    this.getUserId=this.getUserId.bind(this);
     this.getPassword=this.getPassword.bind(this);
     this.submitButtonHandler=this.submitButtonHandler.bind(this);
 }
@@ -17,6 +19,10 @@ constructor(props){
 getUserName(event){
     event.preventDefault();
     this.setState({userName: event.target.value});
+}
+getUserId(event){
+    event.preventDefault();
+    this.setState({userId: event.target.value});
 }
 getPassword(event){
     event.preventDefault();
@@ -34,6 +40,10 @@ render(){
             <div id="search-page-form-div">
                 <form id="search-form" onSubmit={this.submitButtonHandler}>
                     <div id="form-inputs-div">
+                        <div className="form-mini-divs">
+                            <p className="job-display-p">User id</p>
+                            <input className="input-class" id="job-title-input"  type="text" value={this.state.userId} onChange={this.getUserId} placeholder="enter your user id"/>
+                        </div>
                         <div className="form-mini-divs">
                             <p className="job-display-p">User name</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.userName} onChange={this.getUserName} placeholder="enter your user name"/>

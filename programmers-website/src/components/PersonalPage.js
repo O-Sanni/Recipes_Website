@@ -1,130 +1,83 @@
-import React from "react";
+import React, { Component } from 'react';
 import axios from 'axios';
-import UpdateUserInfo from './UpdateUserInfo';
+import { Link, withRouter } from 'react-router-dom';
+import { Button, Container, Form, FormGroup, Input } from 'reactstrap';
 
 class PersonalPage extends React.Component{
+
 constructor(props){
     super(props);
     this.state={
-        userName: "",
-        password: "",
-        email:"",
-        fullName:"",
-        signup: false
+        recipes:[],
+        personalInfo:[]
     }
-    this.changeUserName=this.changeUserName.bind(this);
-    this.changePassword=this.changePassword.bind(this);
-     this.changeFullName=this.changeFullName.bind(this);
-    this.changeEmail=this.changeEmail.bind(this);
-    this.submitButtonHandler=this.submitButtonHandler.bind(this);
+    this.removeRecipe=this.removeRecipe.bind(this);
 }
 
-changeUserName(event){
-    event.preventDefault();
-   <
+componentDidMount(){
+axios.get(`/my_recipes_book/v1/users_recipes/`)
+.then(res=>{this.setState({recipes:res})}).catch(error=>{console.log(error)})
+axios.get(`/my_recipes_book/v1/users/${this.props.match.params.id}`)
+.then(res=>{this.setState({personalInfo:res})}).catch(error=>{console.log(error)})
+console.log(this.state.recipes)
 }
-changePassword(event){
-    event.preventDefault();
-    this.setState({password: event.tarchange.value});
+async removeRecipe(id){
+    await fetch(`/my_recipes_book/v1/users_recipes/${id}`,{
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(() => {
+    let updatedRecipes = [...this.state.recipes].filter(i => i.id !== id);
+    this.setState({recipes: updatedRecipes});
+  });
 }
-changeFullName(event){
-    event.preventDefault();
-    this.setState({fullName: event.tarchange.value});
-}
-changeEmail(event){
-    event.preventDefault();
-    this.setState({email: event.tarchange.value});
-}
-
-submitButtonHandler(event){
-    event.preventDefault();
-    this.setState({search:true});
-}
-
-addUser(){
-    axios.post('/my_recipes_book/v1/users/',
-    {
-    "userName": this.state.userName,
-	"fullName":this.state.fullName,
-	"email":this.state.email,
-    "password":this.state.password,
-    "pictureUrl":""
-    }).then(function (response) {
-    console.log(response);
-  }).catch(function (error) {
-    console.log(error);
-})}
 
 
 render(){
-    return(
-        <div id="main-div-search-page">
-            <div id="search-page-form-div">
-                <form id="search-form" onSubmit={this.submitButtonHandler}>
-                    <div id="form-inputs-div">
-                        <div className="form-mini-divs">
-                            <p className="job-display-p">User name</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.userName} onChange={this.changeUserName} placeholder="enter your user name"/>
-                        </div>
-                        <div className="form-mini-divs">
-                            <p className="job-display-p">Password</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.password} onChange={this.changePassword} placeholder="enter your password"/>
-                        </div>
-                        <div className="form-mini-divs">
-                            <p className="job-display-p">Full name</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.fullName} onChange={this.changeFullName} placeholder="enter your full name"/>
-                        </div>
-                        <div className="form-mini-divs">
-                            <p className="job-display-p">Email</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.email} onChange={this.changeEmail} placeholder="enter email"/>
-                        </div>
-                    </div>
-                    <div id="form-buttons-divs">
-                        <input id="submit-button-form" type="submit" />
-                        {/* clear button will clear the state, put values to initial state in order to do a new search */}
-                        <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "",
-        password: "",
-        email:"",
-        fullName:"",
-        signup: false})}}>Clear</button>
-                    </div>
-                    <p className="job-display-p">If you want to start a new search please press clear</p>
-                </form>
-            </div>  
-            {this.state.search? this.updateUser() : ""}           
-            {/* {this.state.search ? (<SearchJobs results_per_page={this.state.numberToDisplay} page={this.state.page} what={this.state.searchTitle} where={this.state.searchLocation} distance={Math.round(this.state.searchDistanceMl/0.62137)}/>) : ""}  */}
+    const receList = employees.map(employee => {
+        return <tr key={employee.id}>
+          <td style={{whiteSpace: 'nowrap'}}>{employee.firstName}</td>
+          <td>{employee.lastName}</td>
+          <td>{employee.email}</td>
+          <td>
+            <ButtonGroup>
+              <Button size="sm" color="primary" tag={Link} to={"/employee/" + employee.id}>Edit</Button>
+              <Button size="sm" color="danger" onClick={() => this.remove(employee.id)}>Delete</Button>
+            </ButtonGroup>
+          </td>
+        </tr>
+      });
+  
+      return (
+        <div>
+          <AppNavbar/>
+          <Container fluid>
+            <div className="float-right">
+              <Button color="success" tag={Link} to="/employee/new">Add Group</Button>
+            </div>
+            <h3>My Employees List</h3>
+            <Table className="mt-4">
+              <thead>
+              <tr>
+                <th width="20%">First Name</th>
+                <th width="20%">Last Name</th>
+                <th>Email</th>
+                <th width="10%">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              {employeeList}
+              </tbody>
+            </Table>
+          </Container>
         </div>
-        )
+      );
     }
+  }
 }
 
 export default PersonalPage;
 
 
-
-
-
-updateUser(){
-    //     axios.put('/my_recipes_book/v1/users/3',
-    //     {
-    //     "userName": this.state.userName,
-    // 	"fullName":this.state.fullName,
-    // 	"email":this.state.email,
-    //     "password":this.state.password,
-    //     "pictureUrl":""
-    //     }).then(function (response) {
-    //     console.log(response);
-    //   }).catch(function (error) {
-    //     console.log(error);
-    // }) 
-    // }
-    
-    // componentDidMount(){
-    //     axios.change('/my_recipes_book/v1/users/')
-    //     .then(function (response) {
-    //         console.log(response);
-    //       })
-    //       .catch(function (error) {
-    //         console.log(error);
-    //       });
-    //     }
