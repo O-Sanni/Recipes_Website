@@ -29,44 +29,48 @@ class FoodSearch extends React.Component{
 
     }       
         
-the following function will check if this.state.jobList is not undefined .map will called to print out information for each job listing
+// the following function will check if this.state.jobList is not undefined .map will called to print out information for each job listing
     checkIfExist(){ 
-         console.log(this.state.foodLists)
-        if(this.state.foodList===undefined){}
+        if(this.state.foodList!=undefined){console.log(this.state.foodLists)}
         else{
-            let recipes=this.state.foodList.map(res=> {
-                let cations=res.recipe.map(res=>{return <p>{res.cautions}</p>})
-                let dietLabels=res.recipe.map(res=>{return <p>{res.dietLabels}</p>})
-                let digest=res.recipe.map(res=>{return <div><p>{res.digest.label}</p>
-                <p>{res.digest.tag}</p>
-                <p>{res.digest.total}</p>
+            let recipes=this.state.foodLists.map(res=> {
+                let cations=res.recipe.cautions.map(res=>{return <p>{res}</p>})
+                let dietLabels=res.recipe.dietLabels.map(res=>{return <p>{res}</p>})
+                let digest=res.recipe.digest.map(res=>{return <div><p>Label: {res.label}</p>
+                <p>Tag: {res.tag}</p>
+                <p>Total: {res.total}</p>
                 </div>})
-                let healthLabels=res.recipe.map(res=>{return <p>{res.healthLabels}</p>})
-                let ingredients=res.recipe.map(res=>{return <p>{res.ingredients.text}, weight: {res.ingredients.weight}</p>})
+                let healthLabels=res.recipe.healthLabels.map(res=>{return <p>{res}</p>})
+                let ingredients=res.recipe.ingredients.map(res=>{return <p>{res.text}, weight: {Math.round(res.weight)}</p>})
                 
                 return (
                     <div className="recipe-search-output-div-class">
-                        <h2 className="recipe-search-output-class-h2">Name: {res.recipe.label}</h2> 
-                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Calories: </span>{res.recipe.calories}</p>
+                         <h2 className="recipe-search-output-class-h2">Name: {res.recipe.label}</h2> 
+                         <p className="recipe-search-output-class-p"><span class="span-recipe-map">Calories: </span>{res.recipe.calories}</p>
                         <p className="recipe-search-output-class-p"><span class="span-recipe-map">Cautions: </span>{cations}</p>
-                        <p className="recipe-search-output-class-p"><span class="span-recipe-map">Total time: </span>{res.recipe.totalTime}</p>
+                         <p className="recipe-search-output-class-p"><span class="span-recipe-map">Total time: </span>{res.recipe.totalTime}</p>
                         <p className="recipe-search-output-class-p"><span class="span-recipe-map">Total Weight: </span> {res.recipe.totalWeight}</p>
                         <img src={res.recipe.image} alt="dish image"/>
                         <div>
-                            {digest}
-                        </div>
                         <div>
+                        <p>List  of Ingredients: </p>
+                            {ingredients}
+                         </div>
+                        <p>Total Nutrients: </p>
+                              {digest}
+                         </div>
+                        <div>
+                        <p>Diet Labels: </p>
                             {dietLabels}
                         </div>
-                        <div>
-                            {healthLabels}
+                         <div>
+                         <p>Health Labels: </p>
+                             {healthLabels}
                         </div>
-                        <div>
-                            {ingredients}
-                        </div>
-                    </div>)
+                      
+                     </div>)
             })
-            console.log(recipes);
+            return recipes;
             }
     }
 
