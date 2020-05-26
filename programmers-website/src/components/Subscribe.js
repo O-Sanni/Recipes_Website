@@ -52,11 +52,11 @@ render(){
                     <FormGroup id="form-subscribe-inputs-div">
                         <FormGroup className="form-subscribe-mini-divs">
                             <p className="subscribe-display-p">Enter Your Email</p>
-                            <Input   type="text" name="email" id="email" value={item.email || ""} onChange={this.handleChange} autoComplete="email"/>
+                            <Input   type="text" name="email" id="input-subscribe-email" value={item.email || ""} onChange={this.handleChange} autoComplete="email"/>
                         </FormGroup>
                         <FormGroup className="form-subscribe-mini-divs">
                             <p className="subscribe-display-p">Indicate your food Preferences</p>
-                            <Input   type="text" name="preferences" value={item.preferences || ""} onChange={this.handleChange} autoComplete="preferences"/>
+                            <Input   type="text" name="preferences" id="input-subscribe-preferences" value={item.preferences || ""} onChange={this.handleChange} autoComplete="preferences"/>
                         </FormGroup>
                     </FormGroup>
                     <FormGroup id="form-subscribe-buttons-divs">
