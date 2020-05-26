@@ -12,26 +12,27 @@ font-size:25px;
 color:$text-color;
 }
 .recipe-search-output-class-p{
-    margin-top: -15px;
+    margin-top: -25px;
     font-family: $suranna;
     font-size:25px;
     color:$text-color;
 }
-#p-subscribe{
-    margin-top: -20px;
-    font-family: $suranna;
-    font-size:27px;
-    color:$text-color;
+.dish-img-search{
+  width:100px;
+  height: auto;
 }
-.subscribe-display-p{
+.p-search-result{
 font-family: $suranna;
 font-size:25px;
 color:$text-color;
 margin-bottom: -10px;
 margin-top: -15px;
 }
-#input-subscribe-preferences{
-    color:$text-color;
+#search-page-form-div{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 15px;
 }
 
 #input-subscribe-email{

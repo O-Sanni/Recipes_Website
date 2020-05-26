@@ -32,9 +32,6 @@ function Navigation(){
                         <Link className="class-link" to="/personal">Personal Page</Link>
                     </li>
                     <li className="nav-lists">
-                        <Link className="class-link" to="/subscribe">Subscribe</Link>
-                    </li>
-                    <li className="nav-lists">
                         <Link className="class-link" to="/users_recipes">Add/Update Receipt</Link>
                     </li>
                 </ul>
