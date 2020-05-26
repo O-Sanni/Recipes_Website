@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import "../styles/SignInSignUp.scss"
 
 class SignUpPage extends React.Component{
 constructor(props){
@@ -62,19 +63,19 @@ render(){
                 <form id="search-form" onSubmit={this.submitButtonHandler}>
                     <div id="form-inputs-div">
                         <div className="form-mini-divs">
-                            <p className="job-display-p">User name</p>
+                            <p className="signup-display-p">User name</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.userName} onChange={this.getUserName} placeholder="enter your user name"/>
                         </div>
                         <div className="form-mini-divs">
-                            <p className="job-display-p">Password</p>
+                            <p className="signup-display-p">Password</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.password} onChange={this.getPassword} placeholder="enter your password"/>
                         </div>
                         <div className="form-mini-divs">
-                            <p className="job-display-p">Full name</p>
+                            <p className="signup-display-p">Full name</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.fullName} onChange={this.getFullName} placeholder="enter your full name"/>
                         </div>
                         <div className="form-mini-divs">
-                            <p className="job-display-p">Email</p>
+                            <p className="signup-display-p">Email</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.email} onChange={this.getEmail} placeholder="enter email"/>
                         </div>
                     </div>
@@ -83,12 +84,9 @@ render(){
                         {/* clear button will clear the state, put values to initial state in order to do a new search */}
                         <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "", password: "", email:"", fullName:"",signup: false})}}>Clear</button>
                     </div>
-                    <p className="job-display-p">If you want to start a new search please press clear</p>
                 </form>
             </div>  
-            {this.state.search? this.updateUser() : ""}           
-            {/* {this.state.search ? (<SearchJobs results_per_page={this.state.numberToDisplay} page={this.state.page} what={this.state.searchTitle} where={this.state.searchLocation} distance={Math.round(this.state.searchDistanceMl/0.62137)}/>) : ""}  */}
-        </div>
+            </div>
         )
     }
 }
