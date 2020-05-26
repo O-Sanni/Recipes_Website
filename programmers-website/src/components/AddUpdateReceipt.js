@@ -1,3 +1,4 @@
+//Some of the code ideas was taking from morning exercise dated Friday May 23rd,2020
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input } from 'reactstrap';

@@ -1,3 +1,5 @@
+//Some of the code ideas was taking from morning exercise dated Friday May 23rd,2020
+
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';

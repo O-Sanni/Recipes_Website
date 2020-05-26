@@ -1,6 +1,6 @@
 import React from "react";
 import { Link} from "react-router-dom";
-import { Button, Container, Form, FormGroup, Input, Label }  from 'reactstrap';
+import { Button}  from 'reactstrap';
 
 
 class SignInPage extends React.Component{
@@ -37,8 +37,8 @@ submitButtonHandler(event){
 
 render(){
     return(
-        <div id="main-div-search-page">
-            <div id="search-page-form-div">
+        <div id="main-div-signin-page">
+            <div id="signin-page-form-div">
                 <form id="search-form" onSubmit={this.submitButtonHandler}>
                     <div id="form-inputs-div">
                         <div className="form-mini-divs">

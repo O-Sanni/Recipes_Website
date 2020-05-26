@@ -57,8 +57,8 @@ render(){
                 <form id="search-form" onSubmit={this.submitButtonHandler}>
                     <div id="form-inputs-div">
                         <div className="form-mini-divs">
-                            <p className="job-display-p">Enter ingredient name:</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.searchTitle} onChange={this.getSearchTitle} placeholder="&#128269; Search ingredient..."/>
+                            <p className="food-display-p">Enter ingredient name:</p>
+                            <input className="input-class" id="food-title-input"  type="text" value={this.state.searchTitle} onChange={this.getSearchTitle} placeholder="&#128269; Search ingredient..."/>
                         </div>
                         </div>
                     <div id="form-buttons-divs">
