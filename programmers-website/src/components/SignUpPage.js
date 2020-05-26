@@ -44,10 +44,6 @@ getPictureUrl(event){
 
 submitButtonHandler(event){
     event.preventDefault();
-    this.setState({search:true});
-}
-
-addUser(){
     axios.post('/my_recipes_book/v1/users/',
     {
     "userName": this.state.userName,

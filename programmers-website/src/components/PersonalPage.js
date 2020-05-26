@@ -19,7 +19,7 @@ constructor(props){
 }
 async getUser(){
     try{
-  let user=await axios.get(`/my_recipes_book/v1/users/5`)
+  let user=await axios.get(`/my_recipes_book/v1/users/24`)
 this.setState({personalInfo:user.data})
 console.log(this.state.personalInfo)
 }
