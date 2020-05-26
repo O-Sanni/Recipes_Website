@@ -72,11 +72,11 @@ render(){
                         </div>
                         <div className="form-mini-divs">
                             <p className="signup-display-p">Full name</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.fullName} onChange={this.getFullName} placeholder="enter your full name"/>
+                            <input className="input-class" id="signup-title-input"  type="text" value={this.state.fullName} onChange={this.getFullName} placeholder="enter your full name"/>
                         </div>
                         <div className="form-mini-divs">
                             <p className="signup-display-p">Email</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.email} onChange={this.getEmail} placeholder="enter email"/>
+                            <input className="input-class" id="signup-title-input"  type="text" value={this.state.email} onChange={this.getEmail} placeholder="enter email"/>
                         </div>
                     </div>
                     <div id="form-buttons-divs">
