@@ -6,14 +6,16 @@
     grid-template-rows: auto;
     margin-top: 15px;
 }
-#subscribe-page-h1{
+.recipe-search-output-class-h2{
 font-family: $suranna;
-font-size:35px;
+font-size:25px;
 color:$text-color;
 }
-#form-subscribe-inputs-div{
-    margin-top:-25px;
- 
+.recipe-search-output-class-p{
+    margin-top: -15px;
+    font-family: $suranna;
+    font-size:25px;
+    color:$text-color;
 }
 #p-subscribe{
     margin-top: -20px;
