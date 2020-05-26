@@ -47,7 +47,7 @@ render(){
         <Container id="main-div-subscribe-page">
         <h1 id="subscribe-page-h1">Welcome to "My Recipe Book"</h1>
             <Container id="subscribe-page-form-div">
-            <h3 id="h3-subscribe">Please subscribe to receive a new recipes every day</h3>
+            <p id="p-subscribe">Please subscribe to receive a new recipes every day</p>
                 <Form onSubmit={this.submitButtonHandler}>
                     <FormGroup id="form-subscribe-inputs-div">
                         <FormGroup className="form-subscribe-mini-divs">

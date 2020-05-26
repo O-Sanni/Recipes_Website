@@ -17,13 +17,13 @@
     justify-content: center;
     justify-content: space-evenly;
     width: inherit;
-    font-style:$cormorant;
-    color:$text-color;
+
 }
 .class-link{
     text-decoration: none;
-    // font-family: $noto_sans;
-    font-size: 20px;
+    font-family:$kurale;
+    color:$text-color;
+    font-size: 25px;
 }
 
 .class-link:hover{
