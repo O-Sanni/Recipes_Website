@@ -1,0 +1,56 @@
+@import  "ReusableElements";
+
+#main-div-subscribe-page{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-bottom: 55px;
+}
+#subscribe-page-h1{
+font-family: $suranna;
+font-size:35px;
+color:$text-color;
+}
+#form-subscribe-inputs-div{
+    margin-top:-25px;
+ 
+}
+#p-subscribe{
+    margin-top: -20px;
+    font-family: $suranna;
+    font-size:27px;
+    color:$text-color;
+}
+.subscribe-display-p{
+font-family: $suranna;
+font-size:25px;
+color:$text-color;
+margin-bottom: -10px;
+margin-top: -15px;
+}
+#input-subscribe-preferences{
+    color:$text-color;
+}
+
+#input-subscribe-email{
+    color:$text-color;
+}
+#form-subscribe-buttons-divs{
+    margin-top: 15px;
+}
+#save-button-subscribe{
+    font-family: $suranna;
+    font-size:15px;
+    color:$text-color;
+}
+
+#cancel-button-subscribe{
+    text-decoration: none;
+    font-family: $suranna;
+    font-size:15px;
+    color:$text-color;
+    border:solid 1px darkgray;
+    background-color: rgba(238, 238, 238, 0.801);
+
+}
