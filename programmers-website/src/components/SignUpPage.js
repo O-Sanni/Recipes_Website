@@ -37,7 +37,7 @@ getEmail(event){
     event.preventDefault();
     this.setState({email: event.target.value});
 }
-getEmail(event){
+getPictureUrl(event){
     event.preventDefault();
     this.setState({pictureUrl: event.target.value});
 }
@@ -86,7 +86,7 @@ render(){
                         </div>
                         <div className="form-mini-divs">
                             <p className="signup-display-p">Picture URL</p>
-                            <input className="input-class" id="signup-title-input"  type="text" value={this.state.email} onChange={this.getPictureUrl} placeholder="enter picture url"/>
+                            <input className="input-class" id="signup-title-input"  type="text" value={this.state.getPictureUrl} onChange={this.getPictureUrl} placeholder="enter picture url"/>
                         </div>
                     </div>
                     <div id="form-buttons-divs">
