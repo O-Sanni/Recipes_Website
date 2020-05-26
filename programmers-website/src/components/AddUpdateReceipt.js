@@ -82,23 +82,23 @@ render(){
                 <Form onSubmit={this.submitButtonHandler}>
                     <FormGroup id="form-inputs-div">
                     <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Enter your user name</p>
+                            <p className="update-recipe-display-p">Enter your user name</p>
                             <Input   type="text" name="userName" id="userName" value={item.userName || ""} onChange={this.handleChange} autoComplete="userName"/>
                         </FormGroup>
                         <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Enter recipe name</p>
+                            <p className="update-recipe-display-p">Enter recipe name</p>
                             <Input   type="text" name="recipesName" id="recipesName" value={item.recipesName || ""} onChange={this.handleChange} autoComplete="recipesName"/>
                         </FormGroup>
                         <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Enter receipt ingredients</p>
+                            <p className="update-recipe-display-p">Enter receipt ingredients</p>
                             <textarea  name="recipesIngredients" value={item.recipesIngredients} onChange={this.handleChange} autoComplete="recipesIngredients" ></textarea>
                         </FormGroup>
                         <FormGroup className="form-mini-divs">
-                        <p className="job-display-p">Enter receipt cooking process</p>
+                        <p className="update-recipe-display-p">Enter receipt cooking process</p>
                             <textarea  name="recipesCooking" value={item.recipesCooking} onChange={this.handleChange} autoComplete="recipesCooking" ></textarea>
                             </FormGroup>
                         <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Add dish picture url</p>
+                            <p className="update-recipe-display-p">Add dish picture url</p>
                             <Input   type="text" name="recipesPicture" value={item.recipesPicture || ""} onChange={this.handleChange} autoComplete="recipesPicture"/>
                         </FormGroup>
                     </FormGroup>
