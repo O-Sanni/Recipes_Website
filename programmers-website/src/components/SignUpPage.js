@@ -10,12 +10,14 @@ constructor(props){
         password: "",
         email:"",
         fullName:"",
+        pictureUrl:"",
         signup: false
     }
     this.getUserName=this.getUserName.bind(this);
     this.getPassword=this.getPassword.bind(this);
      this.getFullName=this.getFullName.bind(this);
     this.getEmail=this.getEmail.bind(this);
+    this.getPictureUrl=this.getPictureUrl.bind(this);
     this.submitButtonHandler=this.submitButtonHandler.bind(this);
 }
 
@@ -35,6 +37,10 @@ getEmail(event){
     event.preventDefault();
     this.setState({email: event.target.value});
 }
+getEmail(event){
+    event.preventDefault();
+    this.setState({pictureUrl: event.target.value});
+}
 
 submitButtonHandler(event){
     event.preventDefault();
@@ -48,7 +54,7 @@ addUser(){
 	"fullName":this.state.fullName,
 	"email":this.state.email,
     "password":this.state.password,
-    "pictureUrl":""
+    "pictureUrl":this.state.pictureUrl
     }).then(function (response) {
     console.log(response);
   }).catch(function (error) {
@@ -77,6 +83,10 @@ render(){
                         <div className="form-mini-divs">
                             <p className="signup-display-p">Email</p>
                             <input className="input-class" id="signup-title-input"  type="text" value={this.state.email} onChange={this.getEmail} placeholder="enter email"/>
+                        </div>
+                        <div className="form-mini-divs">
+                            <p className="signup-display-p">Picture URL</p>
+                            <input className="input-class" id="signup-title-input"  type="text" value={this.state.email} onChange={this.getPictureUrl} placeholder="enter picture url"/>
                         </div>
                     </div>
                     <div id="form-buttons-divs">

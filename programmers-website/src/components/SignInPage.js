@@ -42,15 +42,15 @@ render(){
                 <form id="search-form" onSubmit={this.submitButtonHandler}>
                     <div id="form-inputs-div">
                         <div className="form-mini-divs">
-                            <p className="job-display-p">User id</p>
+                            <p className="signin-display-p">User id</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.userId} onChange={this.getUserId} placeholder="enter your user id"/>
                         </div>
                         <div className="form-mini-divs">
-                            <p className="job-display-p">User name</p>
-                            <input className="input-class" id="job-title-input"  type="text" value={this.state.userName} onChange={this.getUserName} placeholder="enter your user name"/>
+                            <p className="signin-display-p">User name</p>
+                            <input className="input-class" id="signin-title-input"  type="text" value={this.state.userName} onChange={this.getUserName} placeholder="enter your user name"/>
                         </div>
                         <div className="form-mini-divs">
-                            <p className="job-display-p">Password</p>
+                            <p className="signin-display-p">Password</p>
                             <input className="input-class" id="job-title-input"  type="text" value={this.state.password} onChange={this.getPassword} placeholder="enter your password"/>
                         </div>
                     </div>
@@ -60,7 +60,6 @@ render(){
                          <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "",password: "",userId:"", search: false})}}>Clear</button>
                          <Button size="sm" color="primary" tag={Link} to={"/personal/"} >LogIn</Button>
                     </div>
-                    <p className="job-display-p">If you want to start a new search please press clear</p>
                 </form>
             </div>  
             </div>

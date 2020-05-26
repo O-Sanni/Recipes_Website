@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, Container, ButtonGroup} from 'reactstrap';
+import "../styles/PersonalPage.scss"
 
 class PersonalPage extends React.Component{
 
@@ -80,7 +81,7 @@ personalInfo(){
     <p>User Id: {this.state.personalInfo.userId}</p>
     <p>User Name: {this.state.personalInfo.userName}</p>
     <p>Full Name: {this.state.personalInfo.fullName}</p>
-    <img src={this.state.personalInfo.pictureUrl} alt="picture"></img>
+    <img id="user-img" src={this.state.personalInfo.pictureUrl} alt="picture"></img>
     </div>
     }
 }

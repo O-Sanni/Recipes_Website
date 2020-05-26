@@ -7,13 +7,24 @@
     margin-top: 50px;
     padding-bottom: 55px;
 }
-#subscribe-page-h1{
-font-family: $suranna;
-font-size:35px;
-color:$text-color;
-}
 
 .signup-display-p{
+    margin-bottom: -15px;
+    margin-top: -5px;
+    font-family: $suranna;
+    font-size:30px;
+    color:$text-color;
+}
+//SignIn
+#main-div-signin-page{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-bottom: 55px;
+}
+
+.signin-display-p{
     margin-bottom: -15px;
     margin-top: -5px;
     font-family: $suranna;
