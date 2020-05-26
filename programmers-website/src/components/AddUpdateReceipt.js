@@ -1,23 +1,23 @@
 //Some of the code ideas was taking from morning exercise dated Friday May 23rd,2020
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input } from 'reactstrap';
-
+import axios from "axios";
 
 class AddUpdateReceipt extends React.Component{
 
-    epmtyReceipts={
+    epmtyRecipes={
         userName:"",
         recipesName:"",
         recipesIngredients:"",
         recipesPicture:"",
         recipesCooking: ""
-
     }
+
 constructor(props){
     super(props);
     this.state={
-       item:this.epmtyReceipts,
+       item:this.epmtyRecipes,
        put: false
     }
     this.handleChange=this.handleChange.bind(this);
@@ -26,9 +26,13 @@ constructor(props){
 
 async componentDidMount(){
 if(this.props.match.params.id !== ""){
-    const groupItems=await (await fetch(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`)).json();
+    try{
+    const groupItems=await axios.get(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`);
     this.setState({item:groupItems})
     this.setState({put:true})
+}catch (error){
+    console.log(error)
+}
 }
 }
 handleChange(event){
@@ -38,10 +42,6 @@ handleChange(event){
     item[name]=value;
     this.setState({item});
     
-}
-submitButtonHandler(event){
-    event.preventDefault();
-    this.setState({search:true});
 }
 
 async submitButtonHandler(event){
@@ -56,7 +56,7 @@ async submitButtonHandler(event){
           },
           body: JSON.stringify(item),
         });
-        this.props.history.push('/users_recipes');
+        this.props.history.push('/users_recipes/');
     }
     else{
         await fetch(`/my_recipes_book/v1/users_recipes/`,{
@@ -67,6 +67,7 @@ async submitButtonHandler(event){
               },
               body: JSON.stringify(item)
             });
+            this.props.history.push('/users_recipes');
 
     }
 }

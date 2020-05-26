@@ -60,7 +60,7 @@ recipesList(){
     else{
     const recipesList = this.state.recipes.map(recipe=> {
         return <div>
-            <h2>{recipe.recipeName}</h2>
+            <h2>{recipe.recipesName}</h2>
                 <p>Ingredients: {recipe.recipesIngredients} </p>
             <p>Cooking steps: {recipe.recipesCooking}</p>
             <img src={recipe.recipesPicture}/>
