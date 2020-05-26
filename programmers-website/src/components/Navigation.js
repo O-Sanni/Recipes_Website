@@ -16,7 +16,7 @@ function Navigation(){
             <nav id="navigation">
                 <ul id="nav-ul">
                     <li className="nav-lists">
-                        <Link className="class-link" to="/">About</Link>
+                        <Link className="class-link" to="/">Home</Link>
                     </li>
                     <li className="nav-lists">
                         <Link className="class-link" to="/food_search_info">Food Search</Link>

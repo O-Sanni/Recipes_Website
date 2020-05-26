@@ -12,14 +12,31 @@ constructor(props){
         personalInfo:[]
     }
     this.removeRecipe=this.removeRecipe.bind(this);
-}
+    this.removeAccount=this.removeAccount.bind(this);
 
+}
+async getUser(){
+    try{
+  let user=await axios.get(`/my_recipes_book/v1/users/${this.props.match.params.id}`)
+this.setState({personalInfo:user.data})
+console.log(this.state.personalInfo)
+}
+catch(error){
+   console.log(error);
+}
+}
+async getRecipe(){
+    try{
+  let recipeInfo=await axios.get(`/my_recipes_book/v1/users_recipes/`)
+this.setState({recipes:recipeInfo.data})
+}
+catch(error){
+   console.log(error);
+}
+}
 componentDidMount(){
-axios.get(`/my_recipes_book/v1/users_recipes/`)
-.then(res=>{this.setState({recipes:res.data})}).catch(error=>{console.log(error)})
-axios.get(`/my_recipes_book/v1/users/${this.props.match.params.id}`)
-.then(res=>{this.setState({personalInfo:res})}).catch(error=>{console.log(error)})
-console.log(this.state.recipes)
+this.getRecipe();
+this.getUser();
 }
 
 async removeRecipe(id){
@@ -35,8 +52,8 @@ async removeRecipe(id){
   });
 }
 
+
 recipesList(){
-   
     if(this.state.recipes===undefined){}
     else{
     const recipesList = this.state.recipes.map(recipe=> {
@@ -55,13 +72,25 @@ recipesList(){
     return recipesList;
     }
 }
+personalInfo(){
+    if(this.state.personalInfo===undefined){}
+    else{
+    return <div>
+    <p>User Id: {this.state.personalInfo.userId}</p>
+    <p>User Name: {this.state.personalInfo.userName}</p>
+    <p>Full Name: {this.state.personalInfo.fullName}</p>
+    <img src={this.state.personalInfo.pictureUrl} alt="picture"></img>
+    </div>
+    }
+}
 render(){
     
       return (
         <div>
           <Container fluid>
             <div className="float-right">
-              <Button color="success" tag={Link} to="/users_recipes/">Add new recipe</Button>
+            {this.personalInfo()}
+             <Button color="success" tag={Link} to="/users_recipes/">Add new recipe</Button>
             </div>
             <h3>My recipes</h3>
               {this.recipesList()}
