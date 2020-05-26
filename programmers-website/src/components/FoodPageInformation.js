@@ -1,7 +1,7 @@
 import React from "react";
 import FoodSearch from "./FoodSearch";
 import TranslationComponent from "./TranslationComponent";
-
+import '../styles/FoodSearchInfo.scss'
 
 class FoodPageInformation extends React.Component{
 constructor(props){
