@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter} from "react-router-dom";
 import { Button, Container, Form, FormGroup, Input, Label }  from 'reactstrap';
-
+import "../styles/Subscribe.scss"
 
 class Subscribe extends React.Component{
 
@@ -44,22 +44,24 @@ async submitButtonHandler(event){
 render(){
     const {item}=this.state
     return(
-        <Container id="main-div-search-page">
-            <Container id="search-page-form-div">
+        <Container id="main-div-subscribe-page">
+        <h1 id="subscribe-page-h1">Welcome to "My Recipe Book"</h1>
+            <Container id="subscribe-page-form-div">
+            <h3 id="h3-subscribe">Please subscribe to receive a new recipes every day</h3>
                 <Form onSubmit={this.submitButtonHandler}>
-                    <FormGroup id="form-inputs-div">
-                        <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Enter Your Email</p>
+                    <FormGroup id="form-subscribe-inputs-div">
+                        <FormGroup className="form-subscribe-mini-divs">
+                            <p className="subscribe-display-p">Enter Your Email</p>
                             <Input   type="text" name="email" id="email" value={item.email || ""} onChange={this.handleChange} autoComplete="email"/>
                         </FormGroup>
-                        <FormGroup className="form-mini-divs">
-                            <p className="job-display-p">Indicate your food Preferences</p>
+                        <FormGroup className="form-subscribe-mini-divs">
+                            <p className="subscribe-display-p">Indicate your food Preferences</p>
                             <Input   type="text" name="preferences" value={item.preferences || ""} onChange={this.handleChange} autoComplete="preferences"/>
                         </FormGroup>
                     </FormGroup>
-                    <FormGroup id="form-buttons-divs">
-                    <Button color="primary" class="btn btn-primary" type="submit">Save</Button>{' '}
-                    <Button class="btn btn-secondary" tag={Link} to="/food_search_info">Exit</Button>
+                    <FormGroup id="form-subscribe-buttons-divs">
+                    <Button id="save-button-subscribe" color="primary" class="btn btn-primary" type="submit">Save</Button>{' '}
+                    <Button id="cancel-button-subscribe"class="btn btn-secondary" tag={Link} to="/food_search_info">Cancel</Button>
                         </FormGroup>
                 </Form>
             </Container>  

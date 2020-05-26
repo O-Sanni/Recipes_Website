@@ -7,6 +7,7 @@ import SignUpPage from './SignUpPage';
 import Subscribe from './Subscribe';
 import AddUpdateReceipt from "./AddUpdateReceipt"
 import PersonalPage from "./PersonalPage";
+import '../styles/Navigation.scss'
 
 
 //navigation component will have 4 links and 4 route each route will call exact path for specific component
@@ -39,12 +40,10 @@ function Navigation(){
                 </ul>
             </nav>
             <Switch>
-            {/* Route should have exact path in order to show correct page */}
-                {/* <Route exact path="/" component={AboutPage}></Route>  */}
+                <Route exact path="/" component={Subscribe}></Route> 
                 <Route exact path="/food_search_info" component={FoodPageInformation}></Route>
                 <Route exact path="/signin" component={SignInPage} ></Route>
                 <Route exact path="/signup" component={SignUpPage}></Route>
-                <Route exact path="/subscribe" component={Subscribe}></Route>
                 <Route exact path="/users_recipes" component={AddUpdateReceipt} ></Route>
                 <Route exact path="/personal" component={PersonalPage} ></Route>
             </Switch>

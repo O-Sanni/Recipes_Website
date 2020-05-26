@@ -1,0 +1,31 @@
+@import 'ReusableElements';
+
+#navigation{
+    display:flex;
+    flex-wrap:wrap;
+    align-content: flex-start;
+    border:solid 3px red ;
+    padding-top:5px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+#nav-ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: inherit;
+}
+.class-link{
+    text-decoration: none;
+    // font-family: $noto_sans;
+    font-size: 20px;
+}
+
+.class-link:hover{
+    // color:$light_blue;
+    text-decoration: underline;
+
+}
