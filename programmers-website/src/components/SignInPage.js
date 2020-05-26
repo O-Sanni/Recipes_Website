@@ -58,7 +58,7 @@ render(){
                         {/* <input id="submit-button-form" type="submit" /> */}
                          {/* clear button will clear the state, put values to initial state in order to do a new search */}
                          <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "",password: "",userId:"", search: false})}}>Clear</button>
-                         <Button size="sm" color="primary" tag={Link} to={"/personal/"} props>LogIn</Button>
+                         <Button size="sm" color="primary" tag={Link} to={"/personal/"} >LogIn</Button>
                     </div>
                     <p className="job-display-p">If you want to start a new search please press clear</p>
                 </form>
