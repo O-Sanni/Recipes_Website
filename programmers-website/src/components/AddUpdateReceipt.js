@@ -6,7 +6,7 @@ import axios from "axios";
 
 class AddUpdateReceipt extends React.Component{
 
-    epmtyRecipes={
+    emptyRecipes={
         userName:"",
         recipesName:"",
         recipesIngredients:"",
@@ -17,7 +17,7 @@ class AddUpdateReceipt extends React.Component{
 constructor(props){
     super(props);
     this.state={
-       item:this.epmtyRecipes,
+       item:this.emptyRecipes,
        put: false
     }
     this.handleChange=this.handleChange.bind(this);

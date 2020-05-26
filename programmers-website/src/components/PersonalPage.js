@@ -65,7 +65,7 @@ recipesList(){
             <p>Cooking steps: {recipe.recipesCooking}</p>
             <img src={recipe.recipesPicture}/>
             <ButtonGroup>
-               <Button size="sm" color="primary" tag={Link} to={"/users_recipes/" + recipe.id}>Edit</Button>
+               <Button size="sm" color="primary" tag={Link} to={"/users_recipes/change/" + recipe.id}>Edit</Button>
                <Button size="sm" color="danger" onClick={() => this.removeRecipe(recipe.id)}>Delete</Button>
              </ButtonGroup>
         </div>
