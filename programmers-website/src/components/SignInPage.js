@@ -33,7 +33,6 @@ getPassword(event){
 
 submitButtonHandler(event){
     event.preventDefault();
-    this.setState({search:true});
 }
 
 render(){
@@ -56,10 +55,10 @@ render(){
                         </div>
                     </div>
                     <div id="form-buttons-divs">
-                        <input id="submit-button-form" type="submit" />
+                        {/* <input id="submit-button-form" type="submit" /> */}
                          {/* clear button will clear the state, put values to initial state in order to do a new search */}
-                         <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({searchTitle: "", searchCourse: false, searchBook: false, search: false})}}>Clear</button>
-                        <Button id="clear-button-search-page" type="button" onClick={()=>{this.setState({searchTitle: "", searchCourse: false, searchBook: false, search: false})}}>Clear</Button>
+                         <button id="clear-button-search-page" type="button" onClick={()=>{this.setState({userName: "",password: "",userId:"", search: false})}}>Clear</button>
+                         <Button size="sm" color="primary" tag={Link} to={"/personal/"} props>LogIn</Button>
                     </div>
                     <p className="job-display-p">If you want to start a new search please press clear</p>
                 </form>
