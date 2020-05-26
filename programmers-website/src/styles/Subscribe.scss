@@ -1,7 +1,18 @@
-@import  "ReusableComponents";
+@import  "ReusableElements";
 
 #main-div-subscribe-page{
     display:flex;
     flex-wrap: wrap;
+    flex-direction: column;
     margin-top: 50px;
+    border:solid 3px red;
+}
+#subscribe-page-h1{
+
+}
+#subscribe-page-form-div{
+
+}
+#h3-subscribe{
+
 }
