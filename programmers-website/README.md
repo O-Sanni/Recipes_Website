@@ -1,5 +1,5 @@
 # Wireframe
-![Image](https://github.com/OlgaSannikov/Programmer_Web/blob/master/src/assets/Wireframe.png)
+![Image](https://github.com/OlgaSannikov/Recipes_Website/blob/master/programmers-website/src/assets/Wireframe.png)
 
 ##  Purpose of the project 
     This project helps to search a recipes and their nutritions as well as store your own recipes
@@ -8,7 +8,7 @@
     General public
 
 ## Link
-    
+
 
 ## Resources
 
