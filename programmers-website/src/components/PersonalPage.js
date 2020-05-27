@@ -1,5 +1,4 @@
 //Some of the code ideas was taking from morning exercise dated Friday May 23rd,2020
-
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -89,14 +88,12 @@ render(){
     
       return (
         <div>
-          <Container fluid>
             <div className="float-right">
             {this.personalInfo()}
              <Button color="success" tag={Link} to="/users_recipes/">Add new recipe</Button>
             </div>
             <h3>My recipes</h3>
               {this.recipesList()}
-          </Container>
         </div>
       );
     }
