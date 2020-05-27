@@ -44,7 +44,7 @@ render(){
                 </form>
                 <TranslationComponent />
             </div>  
-            {this.state.search? (<FoodSearch title={this.state.searchTitle} searchTitle={this.state.searchTitle} diet={this.state.diet} cuisineType={this.state.cuisineType} mealType={this.state.mealType} dishType={this.state.dishType}/>) : ""}           
+            {this.state.search? (<FoodSearch title={this.state.searchTitle} />) : ""}           
         </div>
         )
     }
