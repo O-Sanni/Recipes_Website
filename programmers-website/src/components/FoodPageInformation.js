@@ -8,17 +8,9 @@ constructor(props){
     super(props);
     this.state={
         searchTitle: "",
-        diet: "balanced",
-        cuisineType:"",
-        mealType:"breakfast", 
-        dishType:"",
         search: false
     }
     this.getSearchTitle=this.getSearchTitle.bind(this);
-    this.getSearchDiet=this.getSearchDiet.bind(this);
-    this.getSearchCuisineType=this.getSearchCuisineType.bind(this);
-    this.getSearchMealType=this.getSearchMealType.bind(this);
-    this.getSearchDishType=this.getSearchDishType.bind(this);
     this.submitButtonHandler=this.submitButtonHandler.bind(this);
 }
 
@@ -26,25 +18,7 @@ getSearchTitle(event){
     event.preventDefault();
     this.setState({searchTitle: event.target.value});
 }
-getSearchDiet(event){
-    event.preventDefault();
-    this.setState({diet: event.target.value});
-}
 
-getSearchCuisineType(event){
-    event.preventDefault();
-    this.setState({cuisineType: event.target.value});
-}
-
-getSearchMealType(event){
-    event.preventDefault();
-    this.setState({mealType: event.target.value});
-}
-
-getSearchDishType(event){
-    event.preventDefault();
-    this.setState({dishType: event.target.value});
-}
 submitButtonHandler(event){
     event.preventDefault();
     this.setState({search:true});

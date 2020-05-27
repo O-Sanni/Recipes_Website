@@ -24,6 +24,18 @@ class FoodSearch extends React.Component{
            console.log(error);
         }
     }
+    // async getFood(){
+    //     const app_key=process.env.REACT_APP_API_KEY_RECIPES;
+    //     const app_id=process.env.REACT_APP_RECIPES_API_ID;
+    //     try{
+    //        let food=await axios.get(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q=${this.props.title}`)
+    //        this.setState({foodLists: food.data.hits});
+    //     }
+
+    //     catch(error){
+    //        console.log(error);
+    //     }
+    // }
 
     componentDidMount(){
         this.getFood();
