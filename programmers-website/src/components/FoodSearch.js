@@ -44,7 +44,7 @@ class FoodSearch extends React.Component{
         
 // the following function will check if this.state.jobList is not undefined .map will called to print out information for each job listing
     checkIfExist(){ 
-        if(this.state.foodList!=undefined){console.log(this.state.foodLists)}
+        if(this.state.foodList==undefined){console.log(this.state.foodLists)}
         else{
             let recipes=this.state.foodLists.map(res=> {
                 let cations=res.recipe.cautions.map(res=>{return <p>{res}</p>})
