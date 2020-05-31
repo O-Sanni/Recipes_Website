@@ -18,7 +18,7 @@ constructor(props){
 }
 async getUser(){
     try{
-  let user=await axios.get(`/my_recipes_book/v1/users/24`)
+  let user=await axios.get(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users/24`)
 this.setState({personalInfo:user.data})
 console.log(this.state.personalInfo)
 }
@@ -28,7 +28,7 @@ catch(error){
 }
 async getRecipe(){
     try{
-  let recipeInfo=await axios.get(`/my_recipes_book/v1/users_recipes/`)
+  let recipeInfo=await axios.get(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/`)
 this.setState({recipes:recipeInfo.data})
 }
 catch(error){
@@ -41,7 +41,7 @@ this.getUser();
 }
 
 async removeRecipe(id){
-    await fetch(`/my_recipes_book/v1/users_recipes/${id}`,{
+    await fetch(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/${id}`,{
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',

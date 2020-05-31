@@ -31,7 +31,7 @@ this.setState({item});
 async submitButtonHandler(event){
     event.preventDefault();
     const {item}=this.state;
-    await fetch(`/my_recipes_book/v1/subscriptions`,{
+    await fetch(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/subscriptions`,{
         method:'POST',
         headers:{
             'Accept': 'application/json',

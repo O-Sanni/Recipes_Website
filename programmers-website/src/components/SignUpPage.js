@@ -44,7 +44,7 @@ getPictureUrl(event){
 
 submitButtonHandler(event){
     event.preventDefault();
-    axios.post('/my_recipes_book/v1/users/',
+    axios.post('https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users/',
     {
     "userName": this.state.userName,
 	"fullName":this.state.fullName,

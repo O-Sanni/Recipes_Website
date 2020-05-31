@@ -27,7 +27,7 @@ constructor(props){
 async componentDidMount(){
 if(this.props.match.params.id !== ""){
     try{
-    const groupItems=await axios.get(`/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`);
+    const groupItems=await axios.get(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`);
     this.setState({item:groupItems})
     this.setState({put:true})
 }catch (error){
@@ -48,7 +48,7 @@ async submitButtonHandler(event){
     event.preventDefault();
     const {item}=this.state;
     if(this.state.put===true){ 
-    await fetch(`/my_recipes_book/v1/users_recipes/${item.id}`,{
+    await fetch(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/${item.id}`,{
         method:'PUT',
         headers:{
             'Accept': 'application/json',
@@ -56,10 +56,10 @@ async submitButtonHandler(event){
           },
           body: JSON.stringify(item),
         });
-        this.props.history.push('/users_recipes/');
+        this.props.history.push('https://recipes-book-mod3-database.herokuapp.com/users_recipes/');
     }
     else{
-        await fetch(`/my_recipes_book/v1/users_recipes/`,{
+        await fetch(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/`,{
             method:'POST',
             headers:{
                 'Accept': 'application/json',
@@ -67,7 +67,7 @@ async submitButtonHandler(event){
               },
               body: JSON.stringify(item)
             });
-            this.props.history.push('/users_recipes');
+            this.props.history.push('https://recipes-book-mod3-database.herokuapp.com/users_recipes');
 
     }
 }
