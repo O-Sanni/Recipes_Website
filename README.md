@@ -9,9 +9,21 @@
 
 ## Link
 
-[my Recipes Book](https://my-receipts-book.herokuapp.com/)
+[my Recipes Book Database](https://recipes-book-mod3-database.herokuapp.com/)
+[my Recipes Book ](https://recipes-book-mod3.herokuapp.com/)
 
 ## Resources
 
-    1.https://developer.edamam.com/
-    2.https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/#JSON
+    1.  https://developer.edamam.com/
+    2.  https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/#JSON
+    3   Personal database
+
+## Technologies:
+
+    1.  React
+    2.  Axios
+    3.  React-router-dom
+    4.  Java
+    5.  Springboot
+    6.  Sass
+    7.  Reactstrap
