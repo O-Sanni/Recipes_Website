@@ -43,6 +43,7 @@ function Navigation(){
                 <Route exact path="/signup" component={SignUpPage}></Route>
                 <Route exact path="/users_recipes/" component={AddUpdateReceipt} ></Route>
                 <Route exact path="/personal" component={PersonalPage} ></Route>
+                
             </Switch>
         </Router>
     )

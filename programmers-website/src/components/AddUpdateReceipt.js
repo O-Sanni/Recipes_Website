@@ -25,15 +25,19 @@ constructor(props){
 }
 
 async componentDidMount(){
-if(this.props.match.params.id !== ""){
+if(this.props.match.params.id !== "new"){
+this.getReceipt();
+}
+}
+
+async getReceipt(){
     try{
-    const groupItems=await axios.get(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`);
-    this.setState({item:groupItems})
-    this.setState({put:true})
-}catch (error){
-    console.log(error)
-}
-}
+        const groupItems=await axios.get(`https://recipes-book-mod3-database.herokuapp.com/my_recipes_book/v1/users_recipes/${this.props.match.params.id}`);
+        this.setState({item:groupItems})
+        this.setState({put:true})
+    }catch (error){
+        console.log(error)
+    }
 }
 handleChange(event){
     const value=event.target.value;
